@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home - Passos</title>
+    <link rel="stylesheet"  th:href="@{/css/estilos.css}"> <!-- opcional -->
+</head>
+<body>
+    <h2>Bem-vindo à nossa loja!</h2>
+
+    <div th:each="produto : ${produtos}">
+        <div class="produto">
+            <h3 th:text="${produto.nome}"></h3>
+            <p th:text="${produto.descricao}"></p>
+            <p>Preço: R$ <span th:text="${produto.preco}"></span></p>
+            <form th:action="@{/carrinho/adicionar}" method="post">
+                <input type="hidden" th:name="usuarioId" th:value="${usuario.id}" />
+                <input type="hidden" th:name="produtoId" th:value="${produto.id}" />
+                <label for="quantidade">Quantidade:</label>
+                <input type="number" th:name="quantidade" min="1" value="1" required /><br><br>
+                <button type="submit">Adicionar ao Carrinho</button>
+            </form>
+        </div>
+        <br>
+    </div>
+
+    <p><a th:href="@{/carrinho?usuarioId=${usuario.id}}">Ver meu carrinho</a></p>
+</body>
+</html>

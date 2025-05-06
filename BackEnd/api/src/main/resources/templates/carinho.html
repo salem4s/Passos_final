@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Seu Carrinho</title>
+</head>
+<body>
+    <h1>Carrinho de Compras</h1>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Produto</th>
+                <th>Preço</th>
+                <th>Quantidade</th>
+                <th>Subtotal</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="item : ${itens}">
+                <td th:text="${item.produto.nome}">Nome</td>
+                <td th:text="${item.produto.preco}">0.00</td>
+                <td th:text="${item.quantidade}">1</td>
+                <td th:text="${#numbers.formatDecimal(item.produto.preco * item.quantidade, 1, 'COMMA', 2, 'POINT')}">0.00</td>
+                <td>
+                    <form th:action="@{/carrinho/remover}" method="post">
+                        <input type="hidden" name="itemId" th:value="${item.id}" />
+                        <button type="submit">Remover</button>
+                    </form>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p>Total: R$ <span th:text="${total}"></span></p>
+    <span th:text="${#numbers.formatDecimal(total, 1, 'COMMA', 2, 'POINT')}">0.00</span>
+    </p>
+
+    <form th:action="@{/pedido/finalizar}" method="post">
+        <input type="hidden" name="usuarioId" th:value="${usuarioId}" />
+        <button type="submit">Finalizar Pedido</button>
+    </form>
+
+    <br>
+    <a th:href="@{/produtos}">Voltar para Produtos</a>
+</body>
+</html>
