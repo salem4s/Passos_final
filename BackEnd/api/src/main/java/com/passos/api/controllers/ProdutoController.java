@@ -16,7 +16,7 @@ import lombok.RequiredArgsConstructor;
 
 @Controller
 @RequiredArgsConstructor
-@RequestMapping("/produtos")
+@RequestMapping
 public class ProdutoController {
     
 
@@ -53,4 +53,6 @@ public class ProdutoController {
         produtoService.remover(id);
         return "redirect:/produtos";
     }
+    
+
 }

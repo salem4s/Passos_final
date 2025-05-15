@@ -14,7 +14,7 @@ import com.passos.api.models.produto.Produto;
 import com.passos.api.service.CarrinhoService;
 import com.passos.api.service.PedidoService;
 import com.passos.api.service.ProdutoService;
-import com.passos.api.service.UsuarioService;
+// import com.passos.api.service.UsuarioService;
 
 import lombok.RequiredArgsConstructor;
 
@@ -25,7 +25,7 @@ public class CarrinhoController {
     
     private final CarrinhoService carrinhoService;
     private final ProdutoService produtoService;
-    private final UsuarioService usuarioService;
+    // private final UsuarioService usuarioService;
     private final PedidoService pedidoService;
 
     @GetMapping

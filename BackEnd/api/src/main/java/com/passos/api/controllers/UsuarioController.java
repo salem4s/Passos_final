@@ -1,6 +1,6 @@
 package com.passos.api.controllers;
 
-import org.springframework.beans.factory.annotation.Autowired;
+// import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,7 +17,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class UsuarioController {
     
-    @Autowired
+    // @Autowired
     private final UsuarioService usuarioService;
 
     @GetMapping("/cadastro")

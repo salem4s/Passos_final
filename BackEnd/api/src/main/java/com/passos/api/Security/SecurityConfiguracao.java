@@ -9,6 +9,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
+import com.passos.api.service.UsuarioService;
+
 import lombok.RequiredArgsConstructor;
 
 //Considerand usar o thymeleaf
@@ -16,18 +18,21 @@ import lombok.RequiredArgsConstructor;
 @Configuration
 @RequiredArgsConstructor
 public class SecurityConfiguracao {
-     @Bean
+
+    private PasswordEncoder passwordEncoder;
+
+    @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
             .csrf(csrf -> csrf.disable())
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/", "/css/**", "/js/**", "/imagens/**", "/cadastro", "/login").permitAll()
+                .requestMatchers("/", "/css/**", "/js/**", "/assets/**", "/cadastro", "/login").permitAll()
                 .anyRequest().authenticated()
             )
             .formLogin(form -> form
-                .loginPage("/login")
+                .loginPage("/index")
               
-                .defaultSuccessUrl("/produtos", true)
+                .defaultSuccessUrl("/index", true)
                 .permitAll()
             )
             .logout(logout -> logout
@@ -47,5 +52,11 @@ public class SecurityConfiguracao {
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration authConfig) throws Exception {
         return authConfig.getAuthenticationManager();
+    }
+
+    // Configurando o UserDetailsService no Spring Security
+    @Bean
+    public UserDetailsServiceImpl userDetailsService(UsuarioService usuarioService) {
+        return new UserDetailsServiceImpl(usuarioService, passwordEncoder);
     }
 }

@@ -40,21 +40,39 @@ public class UsuarioService {
         return usuarioRepository.findByEmail(email);
     }
 
+    // public Usuario salvar(Usuario usuario) {
+    //     // Aqui você pode adicionar criptografia de senha (ex: BCryptPasswordEncoder)
+    //     return usuarioRepository.save(usuario);
+    // }
+
     public Usuario salvar(Usuario usuario) {
-        // Aqui você pode adicionar criptografia de senha (ex: BCryptPasswordEncoder)
+        usuario.setSenha(passwordEncoder.encode(usuario.getSenha()));
         return usuarioRepository.save(usuario);
     }
+    
+
+    // public Usuario autenticar(String email, String senha) {
+    //     Optional<Usuario> usuarioOpt = usuarioRepository.findByEmail(email);
+    //     if (usuarioOpt.isPresent()) {
+    //         Usuario usuario = usuarioOpt.get();
+    //         if (usuario.getSenha().equals(senha)) { // ← Trocar por senha codificada em produção
+    //             return usuario;
+    //         }
+    //     }
+    //     return null;
+    // }
 
     public Usuario autenticar(String email, String senha) {
         Optional<Usuario> usuarioOpt = usuarioRepository.findByEmail(email);
         if (usuarioOpt.isPresent()) {
             Usuario usuario = usuarioOpt.get();
-            if (usuario.getSenha().equals(senha)) { // ← Trocar por senha codificada em produção
+            if (passwordEncoder.matches(senha, usuario.getSenha())) {
                 return usuario;
             }
         }
         return null;
     }
+    
 
 
 

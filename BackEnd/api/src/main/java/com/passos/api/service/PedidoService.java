@@ -58,7 +58,7 @@ public class PedidoService {
     }
 
     public void finalizarPedido(Long usuarioId) {
-        // TODO Auto-generated method stub
+        
         throw new UnsupportedOperationException("Unimplemented method 'finalizarPedido'");
     }
 }

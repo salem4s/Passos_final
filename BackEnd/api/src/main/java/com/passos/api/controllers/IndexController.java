@@ -39,4 +39,21 @@ public class IndexController {
         return "index";  // Retorna a página index.html
     } 
 
+        @GetMapping("/index")
+        public String exibicao() {
+            return "index";
+    }
+
+    @GetMapping("/masculino")
+    public String masculino() {
+        return "masculino"; // Thymeleaf vai procurar templates/masculino.html
+    }
+
+    @GetMapping("/feminino")
+    public String feminino() {
+        return "feminino"; // Thymeleaf vai procurar templates/feminino.html
+    }
+
+   
+
 }
