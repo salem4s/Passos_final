@@ -4,47 +4,42 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Passos</title>
-  <link rel="stylesheet" th:href="@{/css/estilos.css}" />
-
+  <link rel="stylesheet" th:href="@{/src/main/resources/static/css/estilos.css}" />
 </head>
 <body>
   <header class="header__container">
-    <!-- <img th:src="@{resources/static/assets/img/logo-passos.svg}" alt="Logo_sobre_passos" class="sobre__imagem" /> -->
-    <img th:src="@{/assets/img/logo-passos.png}" class="sobre__imagem"  alt="Logo_sobre_passos" />
-
-    
-
-    <h1 class="header__name" data-fill-animate="">Passos</h1>
-    <nav class="nav__container">
-      <a th:href="masculino" class="nav__link">Masculino</a>
+     <img th:src="@{/assets/img/logo-passos.png}" class="sobre__imagem"  alt="Logo_sobre_passos" />
+     <h1 class="header__name" data-fill-animate="">Passos</h1>
+     <nav class="nav__container">
+      <a th:href="Masculino" class="nav__link">Masculino</a>
       <a href="feminino" class="nav__link">Feminino</a>
       <a href="#" class="nav__link">Carrinho</a>
       <a href="cadastro" class="nav__link">Cadastro</a>
       <a href="login" class="nav__link">Login</a>
-    </nav>
+     </nav>
   </header>
 
   <main class="main__container">
     <section id="sobre" class="produtos__container sobre__produtos">
       <h2 class="produtos__title">Sobre nós</h2>
       <div>
-        <!-- <img th:src="@{assets/img/logo-passos.svg}" alt="Imagem sobre nós" class="sobre__imagem" /> -->
         <p>Aqui você encontra os melhores sapatos, tênis, meias, bonés masculinos e muito mais para completar seu visual com conforto e estilo.</p>
       </div>
     </section>
   </main>
-
-  <footer class="produtos__container contato__produtos">
-    <h2 class="produtos__title">Contato</h2>
-    <p class="contato__texto">
-      xxxx xxxx xxxx xxxx xxxxx xxx XXX xxxx xxxx xxxx xxxxx xxx xxx xxx xx xkkk kkk kkk kkk kkk kkk kkkxx xxxx
-    </p>
-    <div class="contato__redes">
-      <a th:href="@{#}" class="contato__item"><img th:src="@{/img/telefone.svg}" alt="Telefone" /></a>
-      <a th:href="@{#}" class="contato__item"><img th:src="@{/img/github.svg}" alt="GitHub" /></a>
-    </div>
-  </footer>  
 </body>
+
+<br>
+<br>
+
+    <footer class="produtos__container contato__produtos">
+      <h2 class="produtos__title">Contato</h2>
+          <p class="contato__texto">     xxxx xxxx xxxx xxxx xxxxx xxx XXX xxxx xxxx xxxx xxxxx xxx xxx xxx xx xkkk kkk kkk kkk kkk kkk kkkxx xxxx</p>
+      <div class="contato__redes">
+        <a th:href="@{#}" class="contato__item"><img th:src="@{/img/telefone.svg}" alt="Telefone" /></a>
+        <a th:href="@{#}" class="contato__item"><img th:src="@{/img/github.svg}" alt="GitHub" /></a>
+      </div>
+    </footer> 
 </html>
 
 

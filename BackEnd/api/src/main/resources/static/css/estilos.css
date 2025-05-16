@@ -12,11 +12,25 @@ Reset básico
     background-color: #f4f4f4;
     line-height: 1.6;
   }
+
+  /* Footer */
+  footer{
+    position: fixed;   
+    margin-top: 2000px;
+     
+    bottom: 0;
+    left: 0;
+    width:100%;
+
+
+  }
   
   /* Cabeçalho */
   .header__container {
     display: flex;
+    justify-content: space-between;
     align-items: center;
+    margin: auto;
     
     background-color: #2c3e50;
     padding: 20px;
@@ -31,7 +45,6 @@ Reset básico
   }
 
   .sobre__imagem{
-    /* width: 50px; */
     height: 100px;
     margin-right: 20px;
   }
@@ -62,7 +75,6 @@ Reset básico
     border-radius: 5px;
   }
   
-  /* Main content */
   .main__container {
     padding: 40px;
   }
@@ -85,25 +97,12 @@ Reset básico
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
   
-  /* .sobre__imagem {
-    display: flex;
-    justify-content: center;
-    
-
-    width: 50%;
-
-    height: auto;
-    border-radius: 8px;
-    margin-bottom: 20px;
-  } */
-  
   .sobre__produtos p {
     font-size: 1.1rem;
     color: #7f8c8d;
     line-height: 1.8;
   }
   
-  /* Rodapé */
   .contato__produtos {
     background-color: #34495e;
     color: white;
@@ -138,6 +137,7 @@ Reset básico
     transform: scale(1.1);
   }
   
+
   /* Responsividade */
   @media screen and (max-width: 768px) {
     .nav__container {
