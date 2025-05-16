@@ -78,10 +78,17 @@ Reset básico
   .main__container {
     padding: 40px;
   }
-  
-  .produtos__container {
-    margin-bottom: 40px;
-  }
+
+ /* .produtos__container, .contato__produtos {
+  position: fixed;
+  /* bottom: 0;
+  left: 0; */
+  width: 100%;
+  margin-bottom: 40px;
+  background-color: #34495e;
+  color: white;
+  padding: 20px;
+} */
   
   .produtos__title {
     font-size: 2rem;
@@ -103,11 +110,8 @@ Reset básico
     line-height: 1.8;
   }
   
-  .contato__produtos {
-    background-color: #34495e;
-    color: white;
-    padding: 20px;
-  }
+  
+   
   
   .contato__title {
     font-size: 1.5rem;
